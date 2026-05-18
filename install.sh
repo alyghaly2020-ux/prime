@@ -77,7 +77,7 @@ install_linux() {
     debian)
       local tmp="/tmp/prime.deb"
       echo -e "${CYAN}Downloading Prime ${VERSION} (Debian/Ubuntu)...${NC}"
-      download "$GH/releases/download/v${VERSION}/prime_${VERSION}_amd64.deb" "$tmp"
+      download "$GH/releases/download/v${VERSION}/Prime_${VERSION}_amd64.deb" "$tmp"
       echo -e "${CYAN}Installing...${NC}"
       sudo dpkg -i "$tmp" 2>/dev/null || sudo apt-get install -f -y -qq
       rm -f "$tmp"
@@ -85,7 +85,7 @@ install_linux() {
     rpm)
       local tmp="/tmp/prime.rpm"
       echo -e "${CYAN}Downloading Prime ${VERSION} (Fedora/RHEL)...${NC}"
-      download "$GH/releases/download/v${VERSION}/prime-${VERSION}-1.x86_64.rpm" "$tmp"
+      download "$GH/releases/download/v${VERSION}/Prime-${VERSION}-1.x86_64.rpm" "$tmp"
       echo -e "${CYAN}Installing...${NC}"
       sudo rpm -i "$tmp" 2>/dev/null || sudo dnf install -y "$tmp" 2>/dev/null || sudo yum install -y "$tmp"
       rm -f "$tmp"

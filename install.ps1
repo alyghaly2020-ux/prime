@@ -21,7 +21,7 @@ function Install-Prime {
     Write-Host ""
 
     $version = Get-LatestVersion
-    $asset = "Prime_${version}_x64_en-US.exe"
+    $asset = "Prime_${version}_x64-setup.exe"
     $url = "https://github.com/$Repo/releases/download/v${version}/$asset"
     $tmp = "$env:TEMP\prime-installer.exe"
 

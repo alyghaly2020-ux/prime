@@ -53,12 +53,12 @@ All packages are available on the [latest release page](https://github.com/alygh
 
 | Platform | Format | File |
 | :--- | :--- | :--- |
-| **Windows** | `.exe` (NSIS installer) | `Prime_{version}_x64_en-US.exe` |
-| **macOS Intel** | `.dmg` | `Prime_{version}_x64.dmg` |
+| **Windows** | `.exe` (NSIS installer) | `Prime_{version}_x64-setup.exe` |
+| **macOS (Intel)** | `.dmg` | (not available — use Silicon via Rosetta) |
 | **macOS Silicon** | `.dmg` | `Prime_{version}_aarch64.dmg` |
-| **Linux — Debian/Ubuntu** | `.deb` | `prime_{version}_amd64.deb` |
-| **Linux — Fedora/RHEL** | `.rpm` | `prime-{version}-1.x86_64.rpm` |
-| **Linux — all distros** | `.AppImage` | `Prime_{version}_x86_64.AppImage` |
+| **Linux — Debian/Ubuntu** | `.deb` | `Prime_{version}_amd64.deb` |
+| **Linux — Fedora/RHEL** | `.rpm` | `Prime-{version}-1.x86_64.rpm` |
+| **Linux — all distros** | `.AppImage` | `Prime_{version}_amd64.AppImage` |
 
 ### From source
 ```bash
@@ -78,23 +78,22 @@ npm run lint
 ```
 
 ---
----
+
+## From the Developer (Solo, Not a Startup)
+
+Prime is built by **one person**. Everything listed here works, but at the scale and polish one person can achieve, not a team. This repo is a **working foundation and an open idea** — take it, fork it, improve it, or just learn from the architecture.
+
 **Why Prime?**  
 It solves the mess of switching between ChatGPT, CLI tools, VS Code extensions, and web dashboards. One desktop app (Rust + React) where an AI agent can browse the web, use your terminal, edit code, run tests, and complete payments — all locally, all private.
 
-## What is Prime?
 **On stealth & proxy dependencies:**  
 You'll see fingerprint masking and proxy rotation packages. They're there for a single technical reason: the built-in **payment automation** (PayPal, crypto). Without browser stealth, any automated payment session is instantly blocked by anti-bot systems. All data stays local; the browser hides itself as a bot, not the user. Read the code if you want to verify.
 
-Prime is the first **native desktop operating system for AI agents** — a single native app that replaces the mess of CLI tools, VS Code extensions, Python libraries, and cloud dashboards you're currently duct-taping together.
 **Architecture, not just features:**  
 14 subsystems (AI, browser, memory, security, payments, etc.) separated by contracts. Each is functional but basic — real, runnable, not vaporware. The 93 agents and 145 tools are config-driven, not magic. They demonstrate the pattern; you make them sophisticated.
 
-Not a wrapper around ChatGPT. Not a command-line tool. Not a VS Code extension. Not a Python library you import. **A real desktop application** — built in Rust with a React frontend, running on Windows, macOS, and Linux — that gives AI agents the same access to your machine that you have.
 **Why no big company ships this?**  
 Full privacy, multi-model, local memory, automated browser — all in one native app, no cloud subscription. That's a combination no company will bundle because it breaks their business model. This repo proves it's technically possible. The idea might succeed or fail, but the code is yours to build on.
-
-Click a button. Your agent opens the browser, reads the page, types in the terminal, edits the code, runs the tests, deploys the result. All inside one window. All on your hardware. All private.
 
 
 

@@ -38,15 +38,15 @@ This report summarizes the modifications and additions made to secure the GitHub
 
 ### 4. Fully Consistent Single-Command Installation
 * **Status**: The installation pipeline is 100% verified and consistent across Linux, macOS, and Windows.
-* **Master Branch Alignment**: Corrected branch pointers in [install.sh](file:///home/ghaly/prime/install.sh) to systematically retrieve files from the `master` branch.
+* **Release Asset Alignment**: Updated installer links to pull signed scripts from the latest GitHub release assets.
 * **One-liner Install Commands**:
   - **Linux & macOS**:
     ```bash
-    curl -fsSL https://raw.githubusercontent.com/alyghaly2020-ux/prime/master/install.sh | bash
+    curl -fsSL https://github.com/alyghaly2020-ux/prime/releases/latest/download/install.sh | bash
     ```
   - **Windows (PowerShell)**:
     ```powershell
-    powershell -c "irm https://raw.githubusercontent.com/alyghaly2020-ux/prime/master/install.ps1 | iex"
+    powershell -c "irm https://github.com/alyghaly2020-ux/prime/releases/latest/download/install.ps1 | iex"
     ```
 
 ---

@@ -1,5 +1,5 @@
 # Prime Installer for Windows
-# Usage: powershell -c "irm https://raw.githubusercontent.com/alyghaly2020-ux/prime/master/install.ps1 | iex"
+# Usage: powershell -c "irm https://github.com/alyghaly2020-ux/prime/releases/latest/download/install.ps1 | iex"
 
 $Repo = "alyghaly2020-ux/prime"
 $ErrorActionPreference = "Stop"

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Prime Installer for macOS and Linux
-# Usage: curl -fsSL https://raw.githubusercontent.com/alyghaly2020-ux/prime/master/install.sh | bash
+# Usage: curl -fsSL https://github.com/alyghaly2020-ux/prime/releases/latest/download/install.sh | bash
 
 REPO="alyghaly2020-ux/prime"
 GH="https://github.com/$REPO"
@@ -24,7 +24,7 @@ detect_platform() {
     *)
       echo -e "${RED}Unsupported OS: $OS${NC}"
       echo "For Windows, use:"
-      echo '  powershell -c "irm https://raw.githubusercontent.com/alyghaly2020-ux/prime/master/install.ps1 | iex"'
+      echo '  powershell -c "irm https://github.com/alyghaly2020-ux/prime/releases/latest/download/install.ps1 | iex"'
       exit 1
       ;;
   esac

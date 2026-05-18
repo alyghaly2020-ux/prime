@@ -39,12 +39,12 @@ Works on macOS, Linux, and Windows. Detects your OS, downloads the latest versio
 
 **macOS & Linux**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/alyghaly2020-ux/prime/master/install.sh | bash
+curl -fsSL https://github.com/alyghaly2020-ux/prime/releases/latest/download/install.sh | bash
 ```
 
 **Windows**
 ```powershell
-powershell -c "irm https://raw.githubusercontent.com/alyghaly2020-ux/prime/master/install.ps1 | iex"
+powershell -c "irm https://github.com/alyghaly2020-ux/prime/releases/latest/download/install.ps1 | iex"
 ```
 
 ### Manual install

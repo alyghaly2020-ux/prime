@@ -106,7 +106,7 @@ function TreeNode({
               ) : (
                 <button
                   key={child.path}
-                  onClick={() => handleClick()}
+                  onClick={() => onSelect(child.path, child.name)}
                   className={`flex w-full items-center gap-1 rounded-md px-1 py-0.5 text-xs transition-colors ${
                     activeFile === child.path
                       ? "bg-primary/10 text-primary font-medium"

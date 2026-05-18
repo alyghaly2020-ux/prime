@@ -89,7 +89,12 @@ impl PlaywrightEngine {
 
         let mut config_builder = BrowserConfig::builder()
             .chrome_executable(chrome_path)
-            .port(CDP_PORT);
+            .port(CDP_PORT)
+            .arg("--disable-blink-features=AutomationControlled")
+            .arg("--no-sandbox")
+            .arg("--disable-infobars")
+            .arg("--window-size=1280,800")
+            .arg("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
 
         if !is_headless {
             config_builder = config_builder.with_head();
@@ -115,6 +120,23 @@ impl PlaywrightEngine {
             .new_page("about:blank")
             .await
             .map_err(|e| anyhow::anyhow!("Failed to create page: {}", e))?;
+
+        // Advanced stealth injection to spoof navigator fields and bypass bot detection
+        let stealth_js = r#"
+            Object.defineProperty(navigator, 'webdriver', {
+                get: () => undefined
+            });
+            window.chrome = {
+                runtime: {}
+            };
+            Object.defineProperty(navigator, 'plugins', {
+                get: () => [1, 2, 3, 4, 5]
+            });
+            Object.defineProperty(navigator, 'languages', {
+                get: () => ['en-US', 'en']
+            });
+        "#;
+        let _ = page.evaluate_on_new_document(stealth_js).await;
 
         *self.browser.write().await = Some(browser);
         *self.page.write().await = Some(page);

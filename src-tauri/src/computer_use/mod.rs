@@ -157,10 +157,10 @@ pub enum VirtualKey {
 
     // -- Misc ---------------------------------------------------------------
     CapsLock,
-    PrintScreen,
-    ScrollLock,
-    Pause,
-    Menu,
+    // PrintScreen,
+    // ScrollLock,
+    // Pause,
+    // Menu,
 }
 
 // =============================================================================
@@ -275,10 +275,10 @@ fn map_virtual_key(key: VirtualKey) -> EnigoKey {
 
         // Misc
         CapsLock => EnigoKey::CapsLock,
-        PrintScreen => EnigoKey::Print,
-        ScrollLock => EnigoKey::ScrollLock,
-        Pause => EnigoKey::Pause,
-        Menu => EnigoKey::LMenu,
+        // PrintScreen => EnigoKey::Print,
+        // ScrollLock => EnigoKey::ScrollLock,
+        // Pause => EnigoKey::Pause,
+        // Menu => EnigoKey::LMenu,
     }
 }
 

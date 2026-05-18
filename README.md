@@ -35,6 +35,8 @@
 
 ### One-liner install
 
+Works on macOS, Linux, and Windows. Detects your OS, downloads the latest version, and installs everything.
+
 **macOS & Linux**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/alyghaly2020-ux/prime/master/install.sh | bash
@@ -45,6 +47,19 @@ curl -fsSL https://raw.githubusercontent.com/alyghaly2020-ux/prime/master/instal
 powershell -c "irm https://raw.githubusercontent.com/alyghaly2020-ux/prime/master/install.ps1 | iex"
 ```
 
+### Manual install
+
+All packages are available on the [latest release page](https://github.com/alyghaly2020-ux/prime/releases/latest):
+
+| Platform | Format | File |
+| :--- | :--- | :--- |
+| **Windows** | `.exe` (NSIS installer) | `Prime_{version}_x64_en-US.exe` |
+| **macOS Intel** | `.dmg` | `Prime_{version}_x64.dmg` |
+| **macOS Silicon** | `.dmg` | `Prime_{version}_aarch64.dmg` |
+| **Linux — Debian/Ubuntu** | `.deb` | `prime_{version}_amd64.deb` |
+| **Linux — Fedora/RHEL** | `.rpm` | `prime-{version}-1.x86_64.rpm` |
+| **Linux — all distros** | `.AppImage` | `Prime_{version}_x86_64.AppImage` |
+
 ### From source
 ```bash
 git clone https://github.com/alyghaly2020-ux/prime.git
@@ -52,6 +67,7 @@ cd prime
 npm install
 npm run dev           # Terminal 1 — Vite dev server
 cargo build -p prime  # Terminal 2 — Rust backend
+./target/debug/prime
 ```
 
 ### Run tests

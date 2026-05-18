@@ -1,0 +1,132 @@
+[package]
+name = "prime"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+default-run = "prime"
+
+[dependencies.prime_core]
+path = "../prime_core"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+# Tauri 2
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-shell = "2"
+tauri-plugin-fs = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-notification = "2"
+tauri-plugin-clipboard-manager = "2"
+tauri-plugin-process = "2"
+tauri-plugin-os = "2"
+tauri-plugin-updater = "2"
+
+# Async
+tokio.workspace = true
+futures.workspace = true
+async-trait = "0.1"
+
+# Database & Search
+rusqlite = { version = "0.31", features = ["bundled", "vtab"] }
+tantivy = "0.22"
+
+# Serialization
+serde.workspace = true
+serde_json.workspace = true
+serde_yaml.workspace = true
+toml = "0.8"
+rmp-serde = "1"
+
+# Git
+git2 = "0.19"
+
+# Code Intelligence
+tree-sitter = "0.23"
+tree-sitter-rust = "*"
+tree-sitter-python = "*"
+tree-sitter-javascript = "*"
+tree-sitter-typescript = "*"
+tree-sitter-go = "*"
+tree-sitter-java = "*"
+tree-sitter-cpp = "*"
+tree-sitter-c = "*"
+
+# Text Processing
+regex = "1"
+similar = "2"
+
+# Encryption
+aes-gcm = "0.10"
+argon2 = "0.5"
+blake3 = "1"
+ed25519-dalek = { version = "2", features = ["rand_core"] }
+
+# Architecture
+petgraph = "0.6"
+tracing.workspace = true
+tracing-subscriber.workspace = true
+tracing-appender.workspace = true
+
+# Utilities
+uuid.workspace = true
+num_cpus = "1"
+dirs-next = "2"
+hostname = "0.4"
+fxhash = "0.2"
+rand = "0.8"
+chrono.workspace = true
+parking_lot.workspace = true
+once_cell.workspace = true
+walkdir.workspace = true
+anyhow.workspace = true
+thiserror.workspace = true
+notify = "7"
+lru = "0.12"
+scraper = "0.20"
+arboard = "3"
+notify-rust = "4"
+
+# HTTP & Image Processing
+reqwest = { version = "0.12", features = ["json", "stream"] }
+urlencoding = "2"
+image = "0.25"
+base64 = "0.22"
+chromiumoxide = "0.9"
+
+# Desktop Automation (Computer Use)
+enigo = { version = "0.2", features = ["serde"] }
+xcap = "0.3"
+
+# Macro helpers
+paste = "1"
+
+# WebSocket (headless server mode)
+tokio-tungstenite = "0.21"
+
+# CLI argument parsing (headless mode)
+clap = { version = "4", features = ["derive"] }
+
+# Compression (backup/restore)
+zip = { version = "0.6", features = ["deflate"] }
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[package.metadata]
+icons = [
+  "icons/32x32.png",
+  "icons/128x128.png",
+  "icons/128x128@2x.png",
+  "icons/icon.icns",
+  "icons/icon.ico"
+]
+
+[[bin]]
+name = "prime-headless"
+path = "src/main_headless.rs"
+
+[features]
+default = []
+tesseract = []

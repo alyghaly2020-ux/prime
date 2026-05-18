@@ -1,0 +1,77 @@
+# Rust
+target/
+**/*.rs.bk
+Cargo.lock
+
+# Node
+node_modules/
+dist/
+build/
+coverage/
+.nyc_output/
+
+# Tauri
+src-tauri/bin/
+src-tauri/target/
+
+# Environment & Credentials
+.env
+.env.local
+.env.*.local
+**/*.key
+**/*.pem
+**/*.cert
+credentials.json
+
+# Tool & Playwright Caches
+.playwright-mcp/
+test-results/
+playwright-report/
+blob-report/
+playwright/.local-browsers/
+
+# IDE & Editor Configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+*.pyc
+*.pyo
+
+# Local Databases & Persistent Data
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Logs & Temporary Directories
+*.log
+logs/
+tmp/
+temp/
+
+# Trial, Scratch & Experimental Files (Keep Root Clean)
+prime-cli-trial.sh
+*-trial.*
+*trial*
+scratch/
+temp-assets/
+
+# Prevent stray screenshot files from being staged in the root
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+
+
+# Development artifacts
+*.prompt.md
+.github/*_PROMPT.md
+.github/*_UPLOAD_PROMPT.md
+

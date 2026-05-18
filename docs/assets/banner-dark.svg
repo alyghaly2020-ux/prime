@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#f43f5e"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22d3ee"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" fill="url(#bg)" rx="16"/>
+  <rect x="20" y="20" width="1160" height="260" fill="none" stroke="url(#accent)" stroke-width="2" rx="12" opacity="0.4"/>
+  <text x="600" y="110" font-family="system-ui, -apple-system, sans-serif" font-size="96" font-weight="800" fill="url(#title)" text-anchor="middle" letter-spacing="-3">Prime</text>
+  <text x="600" y="165" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="500" fill="#9ca3af" text-anchor="middle" letter-spacing="6">THE NATIVE DESKTOP AI AGENT PLATFORM</text>
+  <rect x="300" y="185" width="600" height="1" fill="url(#accent)" opacity="0.5"/>
+  <text x="600" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#6b7280" text-anchor="middle" letter-spacing="2">PARALLEL AI · COMPUTER USE · 93 AGENTS · 145+ TOOLS · 12 MCP SERVERS · 9 LANGUAGES</text>
+  <text x="600" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4b5563" text-anchor="middle">Built with Rust + Tauri v2 — Runs on Windows · macOS · Linux</text>
+</svg>

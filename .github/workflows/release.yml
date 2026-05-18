@@ -84,6 +84,8 @@ jobs:
         with:
           workspaces: src-tauri
       - run: npm ci
+      - name: Install create-dmg for DMG bundling
+        run: npm install -g create-dmg
       - run: npm run tauri build -- --bundles dmg
         env:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}

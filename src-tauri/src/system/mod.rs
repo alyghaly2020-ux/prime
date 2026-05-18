@@ -168,8 +168,12 @@ impl SystemMonitor {
     }
 
     fn read_temperature() -> TemperatureMetrics {
+        let dir = match std::fs::read_dir("/sys/class/thermal") {
+            Ok(d) => d,
+            Err(_) => return TemperatureMetrics { celsius: None, sensors_found: 0 },
+        };
         let mut temps = Vec::new();
-        for entry in std::fs::read_dir("/sys/class/thermal").unwrap_or_else(|_| std::fs::read_dir("/dev/null").unwrap()).flatten() {
+        for entry in dir.flatten() {
             let name = entry.file_name();
             let name = name.to_string_lossy();
             if name.starts_with("thermal_zone") {

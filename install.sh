@@ -93,7 +93,7 @@ install_linux() {
     appimage)
       local dest="/usr/local/bin/prime"
       echo -e "${CYAN}Downloading Prime ${VERSION} (AppImage)...${NC}"
-      download "$GH/releases/download/v${VERSION}/Prime_${VERSION}_x86_64.AppImage" "/tmp/prime.AppImage"
+      download "$GH/releases/download/v${VERSION}/Prime_${VERSION}_amd64.AppImage" "/tmp/prime.AppImage"
       echo -e "${CYAN}Installing...${NC}"
       sudo mv /tmp/prime.AppImage "$dest"
       sudo chmod +x "$dest"

@@ -200,7 +200,10 @@ fn map_virtual_key(key: VirtualKey) -> EnigoKey {
         // Editing
         Backspace => EnigoKey::Backspace,
         Delete => EnigoKey::Delete,
+        #[cfg(any(target_os = "windows", all(unix, not(target_os = "macos"))))]
         Insert => EnigoKey::Insert,
+        #[cfg(target_os = "macos")]
+        Insert => EnigoKey::Other(114),
         Tab => EnigoKey::Tab,
         Escape => EnigoKey::Escape,
         Return => EnigoKey::Return,

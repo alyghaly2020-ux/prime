@@ -100,6 +100,7 @@ export function BrowserModeFull() {
   }, []);
 
   // Create or reuse a browser session (never conflicts with ChatMode)
+  const chatStoreLoading = useChatStore((s) => s.loading);
   const browserSessionIdRef = useRef<string | null>(null);
   const getBrowserSession = useCallback(() => {
     const existing = sessions.find((s) => s.id.startsWith("browser-"));
@@ -111,12 +112,13 @@ export function BrowserModeFull() {
   }, [sessions]);
 
   useEffect(() => {
+    if (chatStoreLoading) return;
     if (!getBrowserSession()) {
       const id = createSession("Browser Chat", "auto", "auto", "browser-chat");
       renameSession(id, "Browser Chat");
       browserSessionIdRef.current = id;
     }
-  }, [getBrowserSession, createSession, renameSession]);
+  }, [chatStoreLoading, getBrowserSession, createSession, renameSession]);
 
   const messages = (getBrowserSession()?.messages) || [];
 

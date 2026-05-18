@@ -1229,6 +1229,40 @@ async fn browser_get_text(
         .map_err(|e| AppError::Execution(e.to_string()))
 }
 
+#[tauri::command]
+async fn fetch_web_page(
+    browser: tauri::State<'_, Arc<browser::System>>,
+    url: String,
+) -> Result<String, AppError> {
+    // 1. Try real browser (playwright) first for full JS execution and stealth
+    if !browser.playwright.is_connected().await {
+        let _ = browser.playwright.connect("ws://localhost").await;
+    }
+    if browser.playwright.is_connected().await {
+        if let Ok(snapshot) = browser.navigate(&url).await {
+            return Ok(snapshot.html);
+        }
+    }
+
+    // 2. Fallback to robust HTTP reqwest
+    let client = reqwest::Client::builder()
+        .user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+        .timeout(std::time::Duration::from_secs(15))
+        .build()
+        .map_err(|e| AppError::Execution(format!("HTTP client build failed: {}", e)))?;
+
+    let res = client.get(&url)
+        .send()
+        .await
+        .map_err(|e| AppError::Execution(format!("Network request failed: {}", e)))?;
+
+    let body = res.text()
+        .await
+        .map_err(|e| AppError::Execution(format!("Failed to read response body: {}", e)))?;
+
+    Ok(body)
+}
+
 // =============================================================================
 // Task & Observability Commands
 // =============================================================================
@@ -1767,6 +1801,7 @@ impl PrimeApp {
                 browser_snapshot,
                 browser_is_connected,
                 browser_get_text,
+                fetch_web_page,
                 // Observability commands
                 task_list,
                 task_summary,
